@@ -20,16 +20,12 @@ def parse(f):
 
 def solution(data):
 
-    def traverse(elem, s):
+    def traverse(elem):
         if elem not in data or elem == 'other':
             return 0
+        return sum(el[1] * traverse(el[0]) + el[1] for el in data[elem])
 
-        for el in data[elem]:
-            l = el[1] * traverse(el[0], 0) + el[1]
-            s += l
-        return s
-
-    return traverse('shiny gold', 0)
+    return traverse('shiny gold')
 
 
 def main():
