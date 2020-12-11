@@ -18,14 +18,8 @@ def parse(f):
     return luggage
 
 
-def solution(data):
-
-    def traverse(elem):
-        if elem not in data or elem == 'other':
-            return 0
-        return sum(el[1] * traverse(el[0]) + el[1] for el in data[elem])
-
-    return traverse('shiny gold')
+def solution(data, elem):
+    return 0 if elem not in data or elem == 'other' else sum(el[1] * solution(data, el[0]) + el[1] for el in data[elem])
 
 
 def main():
@@ -34,7 +28,7 @@ def main():
     else:
         path = '7.txt'
     with open(path) as f:
-        print(solution(parse(f)))
+        print(solution(parse(f), "shiny gold"))
 
 
 main()
