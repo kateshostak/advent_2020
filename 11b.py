@@ -123,7 +123,6 @@ def count_occupied_neighbours(i, j, inpt):
             count += 1
             break
         k += 1
-
     return count
 
 
@@ -135,7 +134,7 @@ def check(i, j, k, inpt):
 
 
 def main():
-    with open('11test.txt') as f:
+    with open('11.txt') as f:
         print(solution(parse(f.read())))
 
 
